@@ -5,7 +5,7 @@ void quicks(int *, int, int);
 int main()
 {
 	int total_ele,i;
-	printf("Enter number of elements:");
+	printf("Enter number of elements :");
 	scanf("%d", &total_ele);
 	int arr[total_ele];
 	for(i = 0; i < total_ele; i++)

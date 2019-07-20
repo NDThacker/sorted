@@ -63,7 +63,7 @@ void sorter(int *ar, int low, int mid, int high)
 		}
 		if(k >= high - mid)
 		{
-			ar[i] = lf[j];
+			ar[i]= lf[j];
 			j++;
 			continue;
 		}

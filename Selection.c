@@ -31,6 +31,6 @@ int main()
         }
 
     }
-    for(j = 0;j < total_ele; j++)
+    for(j = 0; j < total_ele; j++)
         printf("%d\t", arr[j]);
 }
