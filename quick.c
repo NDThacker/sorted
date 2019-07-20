@@ -1,6 +1,7 @@
 #include<stdio.h>
 //Author N.D.Th(e)hacker
 void quicks(int *, int, int);
+int partition(int *, int, int);
 
 int main()
 {
@@ -21,31 +22,32 @@ void quicks(int *a, int low, int high)
 {
 	if(low >= high)
 		return;
-	int down = low;
-	int up = high;
-	int key = a[down];
-	int temp;
-	down++;
-	while(down < up)
-	{
+	
 
-		while(a[down] < key && down < high)
-			down++;
-		while(a[up] >= key && up > low)
-			 up--;
-		if(down < up)
+	int ci = partition(a, low, high);
+	quicks(a, low, ci-1);
+	quicks(a, ci+1, high);
+
+}
+int partition(int *a, int low, int high)
+{
+	int key = a[high];
+	int ind = -1, j = 0, temp = 0;
+
+	for(j = 0; j < high; j++)
+	{
+		if(a[j] < key)
 		{
-			temp = a[down];
-			a[down] = a[up];
-			a[up] = temp;
+			ind++;
+			temp = a[j];
+			a[j] = a[ind];
+			a[ind] = temp;
 		}
 	}
-	a[low] = a[up];
-	a[up] = key;
-	quicks(a, low, up-1);
-
-	quicks(a, up+1, high);
-
+	temp = a[ind+1];
+	a[high] = temp;
+	a[ind+1] = key;
+	return ind + 1;
 }
 
 
